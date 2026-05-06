@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aline andrade</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#f3efe8;font-family:Helvetica,Arial,sans-serif;overflow-x:hidden;color:#111;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(#000 0.7px, transparent 0.7px);background-size:5px 5px;z-index:999;mix-blend-mode:multiply;}
+.page{padding:18px;}
+a{color:inherit;text-decoration:none;}
+a:visited{color:inherit;}
+a:hover{font-style:italic;}
+header{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;min-height:100vh;}
+.poster-title{border:1px solid #111;position:relative;background:#f8f5ef;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;}
+.poster-title h1{font-size:clamp(90px,17vw,240px);line-height:.74;font-weight:900;letter-spacing:-0.12em;transform:scaleX(.72);transform-origin:left center;padding:10px;width:140%;}
+.cracha-topo{position:absolute;right:20px;top:20px;width:240px;transform:rotate(5deg);filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));z-index:3;}
+.mini-info{border-top:1px solid #111;padding:10px;display:flex;justify-content:space-between;gap:12px;font-size:12px;text-transform:lowercase;}
+.word-poster{border:1px solid #111;padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;background:#f8f5ef;}
+.quote{font-size:20px;text-transform:lowercase;}
+.word-grid{display:grid;grid-template-columns:repeat(10,1fr);border-top:1px solid rgba(0,0,0,.45);border-left:1px solid rgba(0,0,0,.45);background:linear-gradient(rgba(255,255,255,.16), rgba(255,255,255,.16)),radial-gradient(circle at 60% 35%, rgba(0,0,0,.16), transparent 32%),radial-gradient(circle at 35% 70%, rgba(0,0,0,.12), transparent 38%);}
+.cell{aspect-ratio:1/1;border-right:1px solid rgba(0,0,0,.45);border-bottom:1px solid rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-size:clamp(18px,2vw,30px);text-transform:lowercase;}
+.word-link{display:contents;text-decoration:none;color:#111;}
+.word-link .cell{background:#f6b2cf;transition:.2s ease;}
+.word-link:hover .cell{background:#ff7fb5;transform:scale(.94);}
+.empty{background:transparent;}
+.soft{background:rgba(246,178,207,.25);}
+.footer{display:flex;justify-content:space-between;font-size:12px;text-transform:lowercase;}
+main{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #111;}
+.work-list{list-style:none;border-top:1px solid #111;}
+.work-list li{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:12px 0;border-bottom:1px solid #111;text-transform:uppercase;font-size:clamp(28px,5vw,70px);line-height:.84;letter-spacing:-.08em;font-weight:900;transform:scaleX(.82);transform-origin:left center;width:122%;}
+.work-list span{font-size:12px;letter-spacing:0;text-transform:lowercase;font-weight:400;align-self:center;}
+.bio{border-top:1px solid #111;padding-top:12px;display:grid;grid-template-rows:1fr auto;min-height:400px;}
+.bio p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(24px,4.5vw,66px);line-height:.9;letter-spacing:-.07em;}
+.links{display:flex;gap:18px;border-top:1px solid #111;padding-top:12px;text-transform:lowercase;flex-wrap:wrap;}
+.project-pages{margin-top:18px;}
+.project-pages article{min-height:80vh;display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;padding:18px 0;border-bottom:1px solid #111;}
+.project-title{border:1px solid #111;background:#f8f5ef;padding:10px;display:flex;flex-direction:column;justify-content:space-between;}
+.project-title h2{font-size:clamp(54px,9vw,140px);line-height:.76;letter-spacing:-.1em;font-weight:900;transform:scaleX(.75);transform-origin:left center;width:132%;}
+.project-title p{margin-top:30px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,3vw,40px);line-height:.95;letter-spacing:-.05em;}
+.project-visual{border:1px solid #111;background:#d8d4cf;min-height:60vh;position:relative;overflow:hidden;display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(11,1fr);}
+.project-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05)),radial-gradient(circle at 50% 35%, rgba(0,0,0,.26), transparent 26%),radial-gradient(circle at 30% 70%, rgba(0,0,0,.22), transparent 34%),linear-gradient(120deg, rgba(255,255,255,.2), rgba(0,0,0,.14));filter:grayscale(1) contrast(1.2);}
+.tile{position:relative;z-index:2;border-right:1px solid rgba(17,17,17,.45);border-bottom:1px solid rgba(17,17,17,.45);display:flex;align-items:center;justify-content:center;font-size:clamp(16px,2.6vw,42px);text-transform:lowercase;}
+.tile.p{background:rgba(255,143,189,.88);}
+.side-note{position:absolute;right:10px;bottom:10px;writing-mode:vertical-rl;color:#ff6aa8;z-index:4;font-size:20px;opacity:.9;}
+.music-btn{position:fixed;left:12px;bottom:12px;padding:7px 10px;border:1px solid #111;background:#f8f5ef;font-size:12px;cursor:pointer;z-index:99;text-transform:lowercase;}
+.music-btn:hover{background:#ff7fb5;font-style:italic;}
+.note{position:fixed;right:12px;bottom:12px;font-size:11px;opacity:.65;z-index:99;}
+@media(max-width:850px){
+.page{padding:12px;}
+header{display:flex;flex-direction:column;min-height:auto;gap:12px;}
+.poster-title{min-height:500px;padding-top:115px;}
+.poster-title h1{font-size:25vw;width:100%;transform:none;line-height:.82;letter-spacing:-.09em;padding:10px;}
+.cracha-topo{width:145px;right:10px;top:10px;transform:rotate(5deg);}
+.mini-info{font-size:10px;padding:8px;}
+.word-poster{padding:12px;}
+.word-grid{grid-template-columns:repeat(10,1fr);}
+.cell{font-size:17px;}
+.quote{font-size:18px;}
+.footer{font-size:11px;}
+main{grid-template-columns:1fr;}
+.work-list li{font-size:38px;width:118%;}
+.bio{min-height:300px;}
+.bio p{font-size:34px;line-height:.95;}
+.project-pages article{grid-template-columns:1fr;min-height:auto;}
+.project-title h2{font-size:58px;width:100%;transform:none;letter-spacing:-.07em;}
+.project-title p{font-size:26px;}
+.project-visual{min-height:360px;}
+.music-btn{left:10px;bottom:10px;font-size:11px;padding:6px 8px;}
+.note{right:10px;bottom:12px;font-size:10px;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<section class="poster-title">
+<img src="cracha.png" class="cracha-topo" alt="crachá little ali">
+<h1>aline<br>andrade</h1>
+<div class="mini-info"><span>visual identity / cinema / arquivo sentimental</span><span>sp — 2026</span></div>
+</section>
+<section class="word-poster">
+<div class="quote">“the more you look”</div>
+<div class="word-grid">
+<a class="word-link" href="#igor"><div class="cell">i</div><div class="cell">g</div><div class="cell">o</div><div class="cell">r</div></a>
+<div class="cell empty"></div><div class="cell soft">a</div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+<div class="cell empty"></div><div class="cell empty"></div>
+<a class="word-link" href="#republica"><div class="cell">r</div><div class="cell">e</div><div class="cell">p</div><div class="cell">u</div><div class="cell">b</div><div class="cell">l</div><div class="cell">i</div><div class="cell">c</div></a>
+<div class="cell soft">m</div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+<a class="word-link" href="#cidade"><div class="cell">c</div><div class="cell">i</div><div class="cell">d</div><div class="cell">a</div><div class="cell">d</div><div class="cell">e</div></a>
+<div class="cell empty"></div><div class="cell empty"></div><div class="cell soft">o</div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+<a class="word-link" href="#amor"><div class="cell">a</div><div class="cell">m</div><div class="cell">o</div><div class="cell">r</div></a>
+<div class="cell empty"></div><div class="cell empty"></div><div class="cell soft">s</div><div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+<a class="word-link" href="#arquivo"><div class="cell">a</div><div class="cell">r</div><div class="cell">q</div><div class="cell">u</div><div class="cell">i</div><div class="cell">v</div><div class="cell">o</div></a>
+<div class="cell empty"></div><div class="cell empty"></div><div class="cell soft">x</div>
+<a class="word-link" href="https://www.instagram.com/lirouali/" target="_blank"><div class="cell">l</div><div class="cell">i</div><div class="cell">r</div><div class="cell">o</div><div class="cell">u</div><div class="cell">a</div><div class="cell">l</div><div class="cell">i</div></a>
+<div class="cell empty"></div><div class="cell empty"></div>
+<div class="cell soft">s</div><div class="cell soft">p</div><div class="cell empty"></div>
+<a class="word-link" href="https://letterboxd.com/littleali_/" target="_blank"><div class="cell">b</div><div class="cell">o</div><div class="cell">x</div><div class="cell">d</div></a>
+<div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+<a class="word-link" href="#contato"><div class="cell">c</div><div class="cell">o</div><div class="cell">n</div><div class="cell">t</div><div class="cell">a</div><div class="cell">t</div><div class="cell">o</div></a>
+<div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+</div>
+<div class="footer"><span>made with saudade</span><span>little ali</span></div>
+</section>
+</header>
+
+<main>
+<section><ul class="work-list">
+<li><span>01</span><a href="#igor">igor teaser</a><span>film</span></li>
+<li><span>02</span><a href="#republica">república, 23h17</a><span>photo</span></li>
+<li><span>03</span><a href="#cidade">cidade baixa</a><span>essay</span></li>
+<li><span>04</span><a href="#amor">amor em neon sujo</a><span>visual</span></li>
+<li><span>05</span><a href="#arquivo">arquivo sentimental</a><span>notes</span></li>
+</ul></section>
+<aside class="bio">
+<p>aline andrade é formada em comunicação social pela fundação armando alvares penteado (FAAP), apaixonada pelo cinema e operadora de mídia audiovisual pela Rádio Bandeirantes.</p>
+<div class="links"><a href="https://www.instagram.com/lirouali/" target="_blank">instagram</a><a href="https://letterboxd.com/littleali_/" target="_blank">letterboxd</a><a href="#contato">contato</a></div>
+</aside>
+</main>
+
+<section class="project-pages">
+<article id="igor"><div class="project-title"><h2>igor teaser</h2><p>um estudo visual sobre deslocamento, desejo e solidão na cidade.</p></div><div class="project-visual"><div class="side-note">not against, but in favour.</div><div class="tile p">i</div><div class="tile p">g</div><div class="tile p">o</div><div class="tile p">r</div></div></article>
+<article id="republica"><div class="project-title"><h2>república, 23h17</h2><p>fotografias imaginárias de uma noite que parece lembrança antes mesmo de acabar.</p></div><div class="project-visual"><div class="side-note">the more you look.</div></div></article>
+<article id="cidade"><div class="project-title"><h2>cidade baixa</h2><p>ensaio sobre concreto, corpo e rotina.</p></div><div class="project-visual"><div class="side-note">all around you.</div></div></article>
+<article id="amor"><div class="project-title"><h2>amor em neon sujo</h2><p>identidade visual para um romance que nunca sabe se começa ou termina.</p></div><div class="project-visual"><div class="side-note">i want it all.</div></div></article>
+<article id="arquivo"><div class="project-title"><h2>arquivo sentimental</h2><p>notas, imagens, frases e pequenos vestígios de coisas que ficaram.</p></div><div class="project-visual"><div class="side-note">made with saudade.</div></div></article>
+<article id="contato"><div class="project-title"><h2>contato</h2><p>aliandrade200@gmail.com</p></div><div class="project-visual"><div class="side-note">say hello.</div></div></article>
+</section>
+</div>
+
+<button class="music-btn" id="musicButton">sound off</button>
+<audio id="siteMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
+<div class="note">© 2026 — aline andrade</div>
+
+<script>
+const button=document.getElementById('musicButton');
+const music=document.getElementById('siteMusic');
+let playing=false;
+button.addEventListener('click',async()=>{
+if(!playing){await music.play();button.innerText="sound on";playing=true;}
+else{music.pause();button.innerText="sound off";playing=false;}
+});
+</script>
+</body>
+</html>
