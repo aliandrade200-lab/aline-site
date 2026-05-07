@@ -74,9 +74,6 @@ main{grid-template-columns:1fr;}
 .cracha-topo{transition: transform .35s ease;} 
 .cracha-topo{
 transition: transform .35s ease;}
-
-.poster-title:hover .cracha-topo{
-transform: rotate(12deg) translateY(8px) !important;}
             
   </style>
 </head>
@@ -84,7 +81,13 @@ transform: rotate(12deg) translateY(8px) !important;}
 <div class="page">
 <header>
 <section class="poster-title">
-<img src="cracha.png" class="cracha-topo" alt="crachá little ali">
+<img 
+  src="cracha.png" 
+  class="cracha-topo" 
+  alt="crachá little ali"
+  onmouseover="this.style.transform='rotate(12deg) translateY(8px)'"
+  onmouseout="this.style.transform='rotate(5deg) translateY(0px)'"
+>
 <h1>aline<br>andrade</h1>
 <div class="mini-info"><span>visual identity / cinema / arquivo sentimental</span><span>sp — 2026</span></div>
 </section>
