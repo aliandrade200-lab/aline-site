@@ -53,7 +53,7 @@ main{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0;border-b
 header{display:flex;flex-direction:column;min-height:auto;gap:12px;}
 .poster-title{min-height:500px;padding-top:115px;}
 .poster-title h1{font-size:25vw;width:100%;transform:none;line-height:.82;letter-spacing:-.09em;padding:10px;}
-.cracha-topo{width:145px;right:10px;top:10px;transform:rotate(5deg);}
+.cracha-topo{.cracha-topo{width:145px;right:10px;top:10px;transform:rotate(5deg);animation:floatBadge 4s ease-in-out infinite;transform-origin:top center;}
 .mini-info{font-size:10px;padding:8px;}
 .word-poster{padding:12px;}
 .word-grid{grid-template-columns:repeat(10,1fr);}
@@ -70,6 +70,10 @@ main{grid-template-columns:1fr;}
 .project-visual{min-height:360px;}
 .music-btn{left:10px;bottom:10px;font-size:11px;padding:6px 8px;}
 .note{right:10px;bottom:12px;font-size:10px;}
+}@keyframes floatBadge{
+0%{transform:rotate(5deg) translateY(0px);}
+50%{transform:rotate(8deg) translateY(6px);}
+100%{transform:rotate(5deg) translateY(0px);}
 }
 </style>
 </head>
