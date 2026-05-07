@@ -75,8 +75,17 @@ main{grid-template-columns:1fr;}
 0%{transform:rotate(5deg) translateY(0px);}
 50%{transform:rotate(8deg) translateY(6px);}
 100%{transform:rotate(5deg) translateY(0px);}
+} 
+.cracha-topo{
+  animation: floatBadge 2.8s ease-in-out infinite !important;
+  transform-origin: top center !important;
 }
-</style>
+
+@keyframes floatBadge{
+  0%{ transform: rotate(5deg) translateY(0px); }
+  50%{ transform: rotate(10deg) translateY(10px); }
+  100%{ transform: rotate(5deg) translateY(0px); }
+}</style>
 </head>
 <body>
 <div class="page">
