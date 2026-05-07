@@ -70,31 +70,13 @@ main{grid-template-columns:1fr;}
 .project-title p{font-size:26px;}
 .project-visual{min-height:360px;}
 .music-btn{left:10px;bottom:10px;font-size:11px;padding:6px 8px;}
-.note{right:10px;bottom:12px;font-size:10px;}
-}@keyframes floatBadge{
-0%{transform:rotate(5deg) translateY(0px);}
-50%{transform:rotate(8deg) translateY(6px);}
-100%{transform:rotate(5deg) translateY(0px);}
-} 
+.note{right:10px;bottom:12px;font-size:10px;} 
 .cracha-topo{
-  animation: floatBadge 2.8s ease-in-out infinite !important;
-  transform-origin: top center !important;
-}
+  transition: transform .35s ease;}
 
-@keyframes floatBadge{
-  0%{ transform: rotate(5deg) translateY(0px); }
-  50%{ transform: rotate(10deg) translateY(10px); }
-  100%{ transform: rotate(5deg) translateY(0px); }
-}.cracha-topo{
-  animation: balancaCracha 2.5s ease-in-out infinite !important;
-  transform-origin: top center !important;
-}
-
-@keyframes balancaCracha{
-  0%{ transform: rotate(5deg) translateY(0px) !important; }
-  50%{ transform: rotate(14deg) translateY(18px) !important; }
-  100%{ transform: rotate(5deg) translateY(0px) !important; }
-}</style>
+.cracha-topo:hover{
+  transform: rotate(10deg);}   
+  </style>
 </head>
 <body>
 <div class="page">
